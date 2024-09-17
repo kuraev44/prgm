@@ -70,7 +70,24 @@ class pr003 {
 				default:
 					System.out.println("ii больше или равно 5");
 			}
-	
-	
+		//Пример вложенного свитч
+		System.out.println();
+		char ch1 = 'q', ch2 = 'h';
+		switch(ch1) {
+			case 'q':
+				System.out.println("Внешний свитч");
+				switch(ch2) {
+					case 'q':
+						System.out.println("Внешний свитч");
+						break;
+					case 'h':
+						System.out.println("Внутренний свитч");
+						break;
+				}
+				break;
+			case 'h':
+				System.out.println("Не выведется");
+				break;
+		}
 	}
 }
