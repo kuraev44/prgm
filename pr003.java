@@ -118,9 +118,14 @@ class pr003 {
 
 
 		int i8;
+		char ignore;
 		System.out.println("Для остановки цикла нажмите клавишу \"S\"");
-		for (i8 = 0; (char) System.in.read() != 'S'; i8++)
+		for (i8 = 0; (char) System.in.read() != 'S'; i8++) {
+			do {
+                                ignore = (char) System.in.read();
+                        } while (ignore != '\n');
 			System.out.println("итерация №" + i8);
+		}
 
 		System.out.println("\n");
 
@@ -170,6 +175,16 @@ class pr003 {
 			}
 			System.out.println("2 в степени " + i9 + " Равно " + result);
 		}
+
+		//цикл do-while
+		System.out.println("\n");
+		do {
+			System.out.println("Нажмите клавишу, затем ENTER: ");
+			ch = (char) System.in.read();
+			do {
+				ignore = (char) System.in.read();
+			} while (ignore != '\n');
+		} while (ch != 'q');
 
 
 	}
