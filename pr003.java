@@ -146,5 +146,31 @@ class pr003 {
 		for(i8 = 1; i8 <= 5; sum += i8++);
 		System.out.println("Сумма чисел равна " + sum);
 
+		//цикл while
+		System.out.println("\n");
+		ch = 'а';
+		while (ch <= 'я') {
+			System.out.print(ch);
+			ch++;
+		}
+		System.out.println();
+
+		System.out.println("\n");
+		//вычисление целых степеней числа 2
+		
+		int e;
+		int result;
+		for (int i9=0; i9< 10; i9++) {
+			result = 1;
+			e = i9;
+			while(e > 0) {
+				result *=2;
+				e--;
+
+			}
+			System.out.println("2 в степени " + i9 + " Равно " + result);
+		}
+
+
 	}
 }
