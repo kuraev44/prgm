@@ -2,6 +2,11 @@ class Avtomobil {
 	int pass; //кол-во пассажиров
 	int v; //объем бака
 	double rash; //расход топлива в л. на 100 км.
+		     
+
+	void rasst() {
+		System.out.println("Расстояние на полном баке: " + ((int)(v/rash * 100)));
+	}
 }
 class pr004 {
 	public static void main(String args[]) {
@@ -19,16 +24,17 @@ class pr004 {
 		porshe.v = 100;
 		porshe.rash = 14.0;
 
-
-
 		//рассчет расстояния коорое лада проедет на полном баке
 
 		rasst = (int) (lada.v/lada.rash) * 100;
 		rasst = (int) (porshe.v/porshe.rash) * 100;
 
 
-		System.out.println("Lada проедет " + rasst + " км. на полном баке");
-		System.out.println("Porshe проедет " + rasst + " км. на полном баке");
+		System.out.print("для Lada: " );
+		lada.rasst();
+
+		System.out.println("Для Porshe: ");
+		porshe.rasst();
 
 	}
 }	
