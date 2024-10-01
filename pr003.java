@@ -274,10 +274,24 @@ stop2:		{
 
 		//исползование опетора continue
 		System.out.println("\n");
+		for(int i9 = 0; i9<=100; i9++) {
+			if((i9%2) != 0) continue;
+			System.out.print(i9 + " ");
+		}	
+		System.out.println();
 
-
-
-
+		//
+		System.out.println("\n");
+		outerloop:
+		for(int i9=1; i9<10; i9++) {
+			System.out.print("\nпроход внешнего цикла" + i9 + "внутренний цикл: ");
+			for(int j9=1; j9<10; j9++) {
+				if(j9 == 5) continue outerloop;
+				System.out.print(j9);
+		
+			}
+		}
+		System.out.println();
 	
 	}
 }
