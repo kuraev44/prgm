@@ -3,6 +3,11 @@ class Avtomobil {
 	int v; //объем бака
 	double rash; //расход топлива в л. на 100 км.
 		     
+	Avtomobil(int p, int V, double r) {
+		pass = p;
+		v = V;
+		rash = r;
+	}	
 
 	void rasst() {
 		System.out.println("Расстояние на полном баке: " + ((int)(v/rash * 100)));
@@ -20,18 +25,19 @@ class Avtomobil {
 class pr004 {
 	public static void main(String args[]) {
 		//создание экз класса
-		Avtomobil lada = new Avtomobil();
-		Avtomobil porshe = new Avtomobil();
+		Avtomobil lada = new Avtomobil(4, 40, 5.5);
+		Avtomobil porshe = new Avtomobil(1, 100, 14.0);
 		int rasst, rasst2;
 
 		//присваиваем значение
-		lada.pass = 4;
+		/*lada.pass = 4;
 		lada.v = 40;
 		lada.rash = 5.5;
 
 		porshe.pass = 1;
 		porshe.v = 100;
 		porshe.rash = 14.0;
+		*/
 
 		System.out.println("Для расстояни в 10 км нужно " + lada.fuelneeded(10) + "литров бензина");
 		rasst = 10;
