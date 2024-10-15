@@ -153,6 +153,10 @@ class Arrays {
                          System.out.println(sample1[i3] + " ");
 		 System.out.println();
 
+		 //
+		
+
+
 
 	}
 }
