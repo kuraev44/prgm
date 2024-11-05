@@ -163,6 +163,42 @@ class Overload2 {
 	}
 
 }
+class Overload3 {
+	int x;
+
+	Overload3() {
+		System.out.println("Внутри OL3()");
+	        x = 0;	
+   	}
+
+	Overload3(int i19) {
+		System.out.println("Внутри OL3(int)");
+		x = i19;
+	}
+
+	Overload3(double d19) {
+                System.out.println("Внутри OL3(double)");
+                x = (int) d19;
+	}
+	
+	Overload3(int i19, int j19) {
+                System.out.println("Внутри OL3(int, int)");
+                x = i19 * j19;
+	}	
+}
+//
+class Summation {
+	int sum;
+
+	Summation(int num) {
+		sum = 0; 
+		for(int i20 = 1; i20 <= num; i20++)
+			sum += i20;
+	}
+	Summation(Summation ob) {
+		sum = ob.sum;
+	}
+}
 class pr007 {
 	public static void main(String[] args) {
 		Mod ob = new Mod();
@@ -268,7 +304,25 @@ class pr007 {
 		ob8.f(s18);
 		ob8.f(f18);
 
+		System.out.println();
+		//
+		Overload3 t1 = new Overload3();
+		Overload3 t2 = new Overload3(88);
+		Overload3 t3 = new Overload3(17, 23);
+		Overload3 t4 = new Overload3(2, 4);
+		
+		System.out.println("t1.x: " + t1.x);
+		System.out.println("t2.x: " + t2.x);
+		System.out.println("t3.x: " + t3.x);
+		System.out.println("t4.x: " + t4.x);
+		
+		System.out.println();
+		//
+		Summation s1 = new Summation(5);
+		Summation s2 = new Summation(s1);
 
+		System.out.println("s1.sum: " + s1.sum);
+		System.out.println("s2.sum: " + s2.sum);
 
 	}
 }
