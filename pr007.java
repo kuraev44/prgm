@@ -132,7 +132,37 @@ class ErrorInfo {
 
 	}
 }
+//переггрузка методов
+class Overload {
+	void ovlDemo() {
+		System.out.println("Без параметров");
+	}
+	void ovlDemo(int a15) {
+		System.out.println("Один параметр типа int: " + a15);
+	}
+	int ovlDemo(int a15, int b15) {
+		System.out.println("Два параметра типа int: " + a15 + " " + b15);
+		return a15 + b15;
+	}
+	double ovlDemo(double a15, double b15) {
+		System.out.println("Два параметра типа double: " + a15 + " " + b15);
+		return a15 - b15;
+	}
 
+
+}
+class Overload2 {
+	void f(int x) {
+		System.out.println("Внутри f(int): " + x);
+	}
+	void f(double x) {
+		System.out.println("Внутри f(double): " + x);
+	}
+	void f(byte x) {
+		System.out.println("Внутри f(byte): " + x);
+	}
+
+}
 class pr007 {
 	public static void main(String[] args) {
 		Mod ob = new Mod();
@@ -208,6 +238,36 @@ class pr007 {
 		System.out.println(e.msg + ", уровень серьезности: " + e.severity);
 		e = err2.getErrorInfo(20);
                 System.out.println(e.msg + ", уровень серьезности: " + e.severity);
+		System.out.println();
+		//
+		Overload ob7 = new Overload();
+		int resI;
+		double resD;
+
+		ob7.ovlDemo();
+		System.out.println();
+		ob7.ovlDemo(2);
+                System.out.println();
+		resI = ob7.ovlDemo(4, 6);
+		System.out.println("Результат вызова ob7.ovlDemo(4, 6): " + resI);
+		System.out.println();
+		resD = ob7.ovlDemo(5.1, 3.5);
+                System.out.println("Результат вызова ob7.ovlDemo(5.1, 3.5): " + resD);
+                System.out.println();
+
+		//перегрузка
+		Overload2 ob8 = new Overload2();
+		int i18 = 10;
+		double d18 = 10.1;
+		byte b18 = 99;
+		short s18 = 10;
+		float f18 = 11.5F;
+		ob8.f(i18);
+		ob8.f(d18);
+		ob8.f(b18);
+		ob8.f(s18);
+		ob8.f(f18);
+
 
 
 	}
