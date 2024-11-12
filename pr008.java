@@ -26,6 +26,20 @@ class StaticDemo {
 	}
 }
 
+class StaticBlock {
+	static double rootOf2;
+	static double rootOf3; 
+	static {
+		System.out.println("внутри статического блока");
+		rootOf2 = Math.sqrt(2.0);
+		rootOf3 = Math.sqrt(3.0);
+	}
+	StaticBlock(String msg) {
+		System.out.println(msg);
+	}
+}
+
+
 class pr008 {
 	public static void main(String[] args) {
 
@@ -62,6 +76,14 @@ class pr008 {
 
 		System.out.println("ob1.sum(): " + ob1.sum());
                 System.out.println("ob2.sum(): " + ob2.sum());
+
+		//демонстрация работы статического опыта
+		System.out.println();
+		StaticBlock ob = new StaticBlock("Внутри конструктора");
+
+		System.out.println("Квадратный корень из 2: " + StaticBlock.rootOf2);
+		System.out.println("Квадратный корень из 3: " + StaticBlock.rootOf3);
+
 
 
 
