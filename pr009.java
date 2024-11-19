@@ -29,6 +29,12 @@ class TwoDShape {
 class Triangle extends TwoDShape {
 	String style;
 
+	//конструктор
+	Triangle(String s, double w, double h) {
+		style = s;
+		setWidth(w);
+		setHeight(h);
+	}
 	double area() {
 		return getWidth()*getHeight()/2;
 	}
@@ -39,6 +45,15 @@ class Triangle extends TwoDShape {
 class Rectangle extends TwoDShape {
 	String outline;
 
+	//
+	Rectangle(String o, double w, double h) {
+		//
+		outline = o;
+		//
+		setWidth(w);
+		setHeight(h);
+
+	}
 	double area() {
 		return getWidth()*getHeight();
 	}
@@ -53,11 +68,12 @@ class Rectangle extends TwoDShape {
 }
 class pr009 {
 	public static void main(String[] args) {
-		Triangle t1 = new Triangle();
-		Triangle t2 = new Triangle();
-		Rectangle r1 = new Rectangle();
-		Rectangle r2 = new Rectangle();
-		t1.setWidth(4.0);
+		Triangle t1 = new Triangle("Закрашенный", 4.0, 4.0);
+		Triangle t2 = new Triangle("конутрный", 8.0, 12.0);
+		Rectangle r1 = new Rectangle("сплошная", 4.0, 4.0);
+		Rectangle r2 = new Rectangle("пунктирная", 8.0, 12.0);
+
+/*		t1.setWidth(4.0);
 		t1.setHeight(4.0);
 		t1.style = "закрашенный";
 		t2.setWidth(8.0);
@@ -69,6 +85,7 @@ class pr009 {
 		r2.setWidth(8.0);
                 r2.setHeight(12.0);
                 r2.outline = "Пунктирная";
+*/
 		System.out.println("Информация об объекте t1: ");
 		t1.showStyle();
 		t1.showDim();
