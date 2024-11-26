@@ -2,10 +2,12 @@
 class TwoDShape {
 	double width;
 	double height;
+	private String name;
 	int common;
 	//без параметров
 	TwoDShape() {
 		width = height = 0.0;
+		name = "";
 	}
 	//конструктор с двумя параметрами
 	TwoDShape(double w, double h) {
@@ -21,6 +23,7 @@ class TwoDShape {
 	TwoDShape(TwoDShape ob) {
 		width = ob.width;
 		height = ob.height;
+		name = ob.name;
 	}
 	void showDim() {
 		System.out.println("Ширина и высота: " + width + " и " + height);
@@ -39,10 +42,19 @@ class TwoDShape {
 	}
 	void setHeight(double h) {
                 if(h>290)
-                        width = 290;
-                else width = h;
+                        height = 290;
+                else height = h;
 
         }
+	double area() {
+		System.out.println("Метод должен быть определен в подклассе");
+		return 0.0;
+
+
+	}
+	String getName() {
+		return name;
+	}
 
 
 }
@@ -97,6 +109,8 @@ class X {
 	void show() {
 		System.out.println("Значение a: " + a);
 	}
+	void show(String msg) {
+	}
 }
 class Y {
 	int a;
@@ -110,9 +124,13 @@ class Z extends X {
 		super(j);
 		b = i;
 	}
-
+/*
 	void show() {
+		super.show();
 		System.out.println("Значение a и b: " + a + " " + b);
+	}*/
+	void show(String msg) {
+		System.out.println(msg + b);
 	}
 }
 class ColorTriangle extends Triangle {
@@ -150,9 +168,13 @@ class Rectangle extends TwoDShape {
 		outline = "отсутствует";
 		
 	}
+	Rectangle(double x) {
+		super(x);
+		outline = "сплошная";
 
-	//
+	}
 	Rectangle(String o, double w, double h) {
+
 		//
 		super(w, h);
 		//
@@ -250,15 +272,27 @@ class pr009 {
 		x.show();
 		System.out.println("Выполение show");
 		x2.show();
+		x2.show("Перегруженная версия");
+		z.show();
 		x2 = x;
 		System.out.println();
-		
+		x2.show();
 
 		System.out.println("x2.a: " + x2.a);
 		//System.out.println("x2.b: " + x2.b); Переменная подкласса недоступна  
 
 		//x2 = y; Недопустимое присваивание на объект другого типа
+		
+		TwoDShape[] shapes = new TwoDShape[5];
+		shapes[0] = new Triangle("контурный", 8.0, 12.0);
+		shapes[1] = new Rectangle(10);
+		shapes[2] = new Rectangle("сплошная", 10, 4);
+		shapes[3] = new Triangle(7.0);
+		
 
+		for (int i = 0; i>shapes.length; i++) {
+			System.out.println("имя объекта: ");
+		}
 	}
 }
 
