@@ -1,5 +1,5 @@
 //основы наследования
-class TwoDShape {
+abstract class TwoDShape {
 	double width;
 	double height;
 	private String name;
@@ -46,17 +46,11 @@ class TwoDShape {
                 else height = h;
 
         }
-	double area() {
-		System.out.println("Метод должен быть определен в подклассе");
-		return 0.0;
+	abstract double area();
 
-
-	}
 	String getName() {
 		return name;
 	}
-
-
 }
 class Triangle extends TwoDShape {
 	String style;
@@ -154,6 +148,10 @@ class ColorTriangle extends Triangle {
 	void shoeColor() {
 		System.out.println("Цвет" + color);
 	}
+	public String toString() {
+		return "Описывает цветной треугольник и вычисляет его площадь";
+	}
+
 }
 class Rectangle extends TwoDShape {
 	String outline;
@@ -192,8 +190,45 @@ class Rectangle extends TwoDShape {
         }
 
 }
+class A {
+	final void meth() {
+		System.out.println("Фин версия метода");
+	}
+}
+class B extends A {
+	/*void meth() {
+		System.out.println("Ошибочная попытка");
+	}
+	*/
+}
+
+//Использоование final для определения констант
+
+class ErrorMsg {
+	//
+	static final int OUTERR = 0;
+	static final int INERR = 1;
+	static final int DISKERR = 2;
+	static final int INDEXERR = 3;
+	static String[] msgs = {
+		"Ошибка вывода",
+		"Ошибка ввода",
+		"Диск переполнен",
+		"Индекс вышел за пределы массива"
+	};
+	static String getErrorMsg(int i) {
+		if(i >= 0 & i < msgs.length)
+			return msgs[i];
+		else
+			return "Код ошибки не существует";
+	}
+}
 class pr009 {
 	public static void main(String[] args) {
+		//ErrorMsg err = new ErrorMsg();
+		System.out.println(ErrorMsg.getErrorMsg(ErrorMsg.OUTERR));
+		System.out.println(ErrorMsg.getErrorMsg(ErrorMsg.DISKERR));
+		System.out.println();
 		Triangle t1 = new Triangle("Закрашенный", 4.0, 4.0);
 		Triangle t2 = new Triangle("конутрный", 8.0, 12.0);
 		Triangle t3 = new Triangle(4.0);
@@ -290,9 +325,24 @@ class pr009 {
 		shapes[3] = new Triangle(7.0);
 		
 
-		for (int i = 0; i>shapes.length; i++) {
+		for (int i = 0; i<shapes.length-1; i++) {
 			System.out.println("имя объекта: ");
 		}
+		Object obj;
+		obj = shapes[3];
+		System.out.println("Класс объекта: " + obj.getClass() + "\nОписание" + obj.toString());
+		System.out.println("obj и shapes[3] равны друг ругу: "+ shapes[3].equals(obj));
+		System.out.println("Хэш-код объекта: " + obj.hashCode());
+		ColorTriangle t10 = new ColorTriangle("Строка 1","Строка 2", 10,10);
+		obj = t10;
+		System.out.println("КЛасс объекта: " + obj.getClass() + "\nОписание" + obj.toString());
+		 System.out.println("obj и shapes[3] равны друг ругу: "+ shapes[3].equals(obj));
+                System.out.println("Хэш-код объекта: " + obj.hashCode());
+
+
+		System.out.println("t12 и t11 равны друг ругу: "+ shapes[3].equals(obj));
+                System.out.println("Хэш-код объекта: " + obj.hashCode());
+
 	}
 }
 
